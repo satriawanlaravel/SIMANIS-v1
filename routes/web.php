@@ -19,7 +19,6 @@ Route::get('/aku', function () {
 });
 
 Route::get('/cabangindustri','CabangindustriController@index');
-Route::post('mhs/fatch','CabangindustriController@fatch')->name('mhs.fatch');
 
 Auth::routes();
 
