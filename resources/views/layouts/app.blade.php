@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Larashop @yield("title")</title>
-    <link rel="stylesheet" href="{{asset('assets/css/polished.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/iconic/css/open-iconic-bootstrap.min.css')}}">
-    <!-- <link rel="stylesheet" href="{{asset('assets/css/select2.min.css')}}"> -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/css/polished.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/iconic/css/open-iconic-bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}"> -->
+    @yield('css')
     <style>
         .grid-highlight {
             padding-top: 1rem;
@@ -21,23 +21,19 @@
             border: 1px solid #202e78;
             color: #fff;
         }
-
         hr {
             margin: 6rem 0;
         }
-
         hr+.display-3,
         hr+.display-2+.display-3 {
             margin-bottom: 2rem;
         }
-
     </style>
     <script type="text/javascript">
         document.documentElement.className =
             document.documentElement.className.replace('no-js', 'js') +
             (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure ", "1.1 ") ? ' svg' :
                 ' no-svg');
-
     </script>
 </head>
 
@@ -51,17 +47,18 @@
         <input class="border-dark bg-primary-darkest form-control d-none d-md-block w-50 ml-3 mr-2" type="text"
             placeholder="Search" aria-label="Search">
         <div class="dropdown d-none d-md-block">
-            @if(\Auth::user())
-            <button class="btn btn-link btn-link-primary dropdown-toggle" id="navbar-dropdown" data-toggle="dropdown">
-                {{Auth::user()->name}}
-            </button>
+            @if (\Auth::user())
+                <button class="btn btn-link btn-link-primary dropdown-toggle" id="navbar-dropdown"
+                    data-toggle="dropdown">
+                    {{ Auth::user()->name }}
+                </button>
             @endif
             <div class="dropdown-menu dropdown-menu-right" id="navbar-dropdown">
                 <a href="#" class="dropdown-item">Profile</a>
                 <a href="#" class="dropdown-item">Setting</a>
                 <div class="dropdown-divider"></div>
                 <li>
-                    <form action="{{route("logout")}}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button class="dropdown-item" style="cursor:pointer">Sign
                             Out</button>
@@ -84,7 +81,7 @@
                         <li><a href="#"> Profile</a></li>
                         <li><a href="#"> Setting</a></li>
                         <li>
-                            <form action="{{route("logout")}}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button class="dropdown-item" style="cursor:pointer">Sign Out</button>
                             </form>
@@ -111,25 +108,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- <script src="assets/js/select2.min.js"> -->
-    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
     </script>
-    <script>
-            $(document).ready(function () {
-                $('.select2').select2();
-                $(".select2-dynamic").select2({
-                    tags: true
-                });
-            });
 
-        </script>
-    
+    @yield('js')
 </body>
 
 </html>
