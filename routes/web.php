@@ -19,6 +19,7 @@ Route::get('/aku', function () {
 });
 
 Route::get('/cabangindustri','CabangindustriController@index');
+Route::get('/subcabangindustri/{id}','CabangindustriController@get_subcategoriindustri');
 
 Auth::routes();
 

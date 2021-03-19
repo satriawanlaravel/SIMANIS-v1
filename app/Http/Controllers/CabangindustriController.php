@@ -3,36 +3,20 @@
 namespace App\Http\Controllers;
 use App\CabangIndustri;
 use App\SubCabangIndustri;
-use DB;
 use Illuminate\Http\Request;
 
 class CabangindustriController extends Controller
 {
     public function index()
     {
-        // $set = Request::get('id');
-        // $cabangindustri = CabangIndistri::where('id', $set)->get();
-		// $subcabangindustri = SubCabangIndustri::where('id', $set)->get();
-        // dd($cabangindustri);
-
-        $getcabang = CabangIndustri::all(); 
-        $getsubcabang = SubCabangIndustri::all(); 
-        
-        return view('cabangindustri.index',  compact('getcabang','getsubcabang'));
+        $getcabang = CabangIndustri::all();
+        return view('cabangindustri.index',  compact('getcabang'));
     }
 
-    
-
-    public function get_subcategoriindustri()
+    public function get_subcategoriindustri(Request $request)
     {
-        $set = Input::get('id');
-        $cabangindustri = CabangIndistri::where('id', $set)->get();
-		$subcabangindustri = SubCabangIndustri::where('id', $set)->get();
-        dd($cabangindustri);
-        $getsubcabangindustri = DB::table('sub_cabang_industris')
-        ->join('cabang_industris', 'sub_cabang_industris.cabangindustri_id', '=', 'cabang_industris.id')
-        ->get();
-              
-       }
+		$subcabangindustri = SubCabangIndustri::where('cabangindustri_id', $request->id)->pluck('nama_sub_cabangindustri', 'id');
+        return response()->json($subcabangindustri);
+    }
 
 }
