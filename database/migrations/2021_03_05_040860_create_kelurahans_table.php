@@ -17,7 +17,7 @@ class CreateKelurahansTable extends Migration
             $table->char('id', 10)->primary();
             $table->char('kecamatan_id', 7);
             $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama_kelurahan');
+            $table->string('nama_kelurahan_desa');
         });
     }
 
