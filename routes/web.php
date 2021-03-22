@@ -14,7 +14,7 @@ use App\SubCabangIndustri;
 |
 */
 
-Route::get('/aku', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 

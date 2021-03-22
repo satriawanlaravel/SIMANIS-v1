@@ -15,7 +15,6 @@
         <div class="form-control">
             <label for="">Sub Cabang Industri</label>
             <select class="form-control select2" name="sub">
-
             </select>
         </div>
     </div>
@@ -38,7 +37,6 @@
                 theme: 'bootstrap4'
             });
         });
-
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -62,7 +60,5 @@
                 }
             });
         });
-
     </script>
-
 @endsection()
