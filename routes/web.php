@@ -21,6 +21,10 @@ Route::get('/', function () {
 Route::get('/cabangindustri','CabangindustriController@index');
 Route::get('/subcabangindustri/{id}','CabangindustriController@get_subcategoriindustri');
 
+Route::get('/provinsi','ProvinsiController@index');
+Route::get('/getkabupaten/{id}','ProvinsiController@get_kabupaten');
+Route::get('/getkecamatan/{id}','ProvinsiController@get_kecamatan');
+Route::get('/getkelurahandesa/{id}','ProvinsiController@get_kelurahandesa');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
