@@ -9,7 +9,7 @@ class SubCabangIndustri extends Model
     protected $table = 'sub_cabang_industris';
     protected $fillable = ['nama_sub_cabangindustri','cabangindustri_id'];
 
-    public function sub_cabangindustri(){
+    public function cabangindustri(){
         return $this->hasMany('App\CabangIndustri', 'cabangindutri_id', 'id');
     }
     
