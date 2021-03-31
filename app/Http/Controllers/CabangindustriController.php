@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\CabangIndustri;
 use App\SubCabangIndustri;
-use DB;
 use Illuminate\Http\Request;
 
 class CabangindustriController extends Controller
